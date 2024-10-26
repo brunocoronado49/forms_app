@@ -1,13 +1,10 @@
 import 'package:formz/formz.dart';
 
-// Errores que maneja el campo
 enum PasswordError { empty, length }
 
 class Password extends FormzInput<String, PasswordError> {
-  // Establece el valor inicial
   const Password.pure() : super.pure('');
 
-  // Forma de como cambiara el valor
   const Password.dirty({String value = ''}) : super.dirty(value);
 
   String? get errorMessage {
@@ -17,7 +14,6 @@ class Password extends FormzInput<String, PasswordError> {
     return null;
   }
 
-  // El validator retorna null si no hay erroes
   @override
   PasswordError? validator(String value) {
     if(value.isEmpty || value.trim().isEmpty) return PasswordError.empty;
